@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
         <FrameLayout
-        android:id="@+id/fm_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+            android:id="@+id/fm_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomNavigationView"/>
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Transform" />
 
         <com.codedix.distantiaui.bottombar.DistantiaBottomBar
+            android:layout_alignParentBottom="true"
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="bottom"
             app:fab_cradle_margin="8dp"
-            app:fab_cradle_rounded_corner_radius="8dp"
-            app:fab_size="50dp"
+            app:fab_cradle_rounded_corner_radius="40dp"
+            app:fab_size="55dp"
+            app:itemTextColor="#fff"
             app:itemIconTint="@android:color/white"
+            app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationView"
             app:menu="@menu/main" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            app:fabCustomSize="67dp"
+            app:backgroundTint="@color/colorAccent"
+            android:src="@drawable/ic_on"
+            app:maxImageSize="34dp"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
             android:clickable="true"
             android:focusable="true"
-            app:layout_anchor="@id/bottomNavigationView"
-            app:layout_anchorGravity="fill_vertical|center_horizontal"
-            app:elevation="16dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="35dp"
+            app:elevation="10dp" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
 

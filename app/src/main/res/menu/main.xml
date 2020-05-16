@@ -2,16 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/n_profile"
         android:icon="@drawable/ic_profile"
         android:title="@string/profile" />
 
     <!-- -->
     <item
-        android:icon="@drawable/ic_check"
-        android:enabled="true"
+        android:id="@+id/n_scan"
+        android:icon="@drawable/ic_service"
         android:title="@string/service" />
 
     <item
+        android:id="@+id/n_info"
         android:icon="@drawable/ic_info"
         android:title="@string/info" />
 </menu>

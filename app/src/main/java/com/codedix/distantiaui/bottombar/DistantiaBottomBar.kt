@@ -51,23 +51,33 @@ class DistantiaBottomBar @JvmOverloads constructor(
         background = materialShapeDrawable
     }
 
+    fun showFAB(fab: FloatingActionButton) {
+        ValueAnimator.ofFloat(materialShapeDrawable.interpolation, 1F).apply {
+            addUpdateListener { materialShapeDrawable.interpolation = it.animatedValue as Float }
+            doOnEnd { fab.show() }
+            start()
+        }
+    }
+
+    fun hideFAB(fab: FloatingActionButton) {
+        fab.hide(object : FloatingActionButton.OnVisibilityChangedListener() {
+            override fun onHidden(fab: FloatingActionButton?) {
+                super.onHidden(fab)
+                ValueAnimator.ofFloat(materialShapeDrawable.interpolation, 0F).apply {
+                    addUpdateListener { materialShapeDrawable.interpolation = it.animatedValue as Float }
+                    start()
+                }
+            }
+        })
+    }
+
+
+
     fun transform(fab: FloatingActionButton) {
         if (fab.isVisible) {
-            fab.hide(object : FloatingActionButton.OnVisibilityChangedListener() {
-                override fun onHidden(fab: FloatingActionButton?) {
-                    super.onHidden(fab)
-                    ValueAnimator.ofFloat(materialShapeDrawable.interpolation, 0F).apply {
-                        addUpdateListener { materialShapeDrawable.interpolation = it.animatedValue as Float }
-                        start()
-                    }
-                }
-            })
+
         } else {
-            ValueAnimator.ofFloat(materialShapeDrawable.interpolation, 1F).apply {
-                addUpdateListener { materialShapeDrawable.interpolation = it.animatedValue as Float }
-                doOnEnd { fab.show() }
-                start()
-            }
+
         }
     }
 }
