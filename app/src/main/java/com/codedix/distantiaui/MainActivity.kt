@@ -14,7 +14,6 @@ import com.codedix.distantiaui.pages.FmProfile
 import com.codedix.distantiaui.pages.FmScan
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,8 +37,14 @@ class MainActivity : AppCompatActivity() {
             ft.replace(R.id.fm_content, f, "").commitAllowingStateLoss()
             toolbar!!.title = title
 
-            if(showFAB) bottomNav!!.showFAB(fabButton!!)
-            else bottomNav!!.hideFAB(fabButton!!)
+            if(showFAB) {
+                bottomNav!!.showFAB(fabButton!!)
+                centerItem!!.icon = activity!!.getDrawable(android.R.color.transparent)
+            }
+            else {
+                bottomNav!!.hideFAB(fabButton!!)
+                centerItem!!.icon = activity!!.getDrawable(R.drawable.ic_service)
+            }
 
             return true
         }
@@ -47,14 +52,11 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item: MenuItem ->
-            centerItem!!.icon = getDrawable(R.drawable.ic_service)
             when (item.itemId) {
                 R.id.n_profile ->
                     return@OnNavigationItemSelectedListener setFragment(FmProfile.newInstance(), context!!.getString(R.string.profile))
-                R.id.n_scan -> {
-                    centerItem!!.icon = getDrawable(android.R.color.transparent)
+                R.id.n_scan ->
                     return@OnNavigationItemSelectedListener setFragment(FmScan.newInstance(), context!!.getString(R.string.service), true)
-                }
                 R.id.n_info ->
                     return@OnNavigationItemSelectedListener setFragment(FmInformation.newInstance(), context!!.getString(R.string.info))
             }
