@@ -1,0 +1,98 @@
+<resources>
+
+    <string name="app_name">Distantia</string>
+    <string name="shared_pref">it.unict.distantia.prefs</string>
+
+    <string name="unict_logo">UNICT logo</string>
+
+    <!-- NOTIFICATIONS -->
+    <string name="scanning">Scansione dispositivi in esecuzione…</string>
+    <string name="scan_stopped">Tracciamento interrotto</string>
+    <string name="start_service">Avvia il servizio</string>
+    <string name="start">AVVIA</string>
+    <string name="stop">STOP</string>
+    <string name="notif_distance_title">Troppo vicino</string>
+    <string name="notif_distance_text">Sei troppo vicino ad una persona. Mantieni la distanza di sicurezza!</string>
+    <!-- NOTIFICATIONS -->
+
+
+    <!-- MAIN PAGE -->
+    <string name="add">AGGIUNGI</string>
+    <string name="remove">RIMUOVI</string>
+    <string name="distance">Distanza</string>
+
+    <string name="ho_capito">Ho capito</string>
+    <string name="ble_not_avaible">Siamo spiacenti, ma il tuo dispositivo non supporta Bluetooth Low Energy pertanto non sarà rilevabile dagli altri dispositivi.</string>
+    <string name="dispositivi_ignorati">Dispositivi ignorati</string>
+
+    <string name="service">Scansione</string>
+    <string name="searching">In ricerca…</string>
+
+    <string name="filter">Filtro</string>
+    <string name="filter_all">Tutti i dispositivi</string>
+    <string name="filter_app">Solo app</string>
+
+    <string name="d_title_bluetooth">Avvio Servizio</string>
+    <string name="d_text_bluetooth">Il bluetooth non è attivo. Verrà attivato in automatico.</string>
+
+    <string name="d_title_permission">Permessi</string>
+    <string name="d_text_permission">Per utilizzare la tecnologia BLE è necessario concedere il permesso \'Posizione\'. Se non accetti, il tuo dispositivo sarà comunque visibile, ma non potrai visualizzare gli altri dispositivi nelle vicinanze.</string>
+    <string name="accept">Concedi</string>
+    <string name="ok">OK</string>
+    <string name="no">No</string>
+    <!-- MAIN PAGE -->
+
+
+    <!-- PROFILES PAGE -->
+    <string name="r0_value">Valore R0</string>
+    <string name="n_value">Valore N</string>
+    <string name="dimensione_kalman">Dimensione Kalman</string>
+    <string name="profile">Profili</string>
+    <string name="profile_indoor_name">Ambiente interno</string>
+    <string name="profile_outdoor_name">Ambiente esterno</string>
+    <string name="profile_custom_name">Personalizzato</string>
+    <!-- PROFILES PAGE -->
+
+
+    <!-- INFORMATION PAGE -->
+    <string name="version">Versione 0.4.2</string>
+    <string name="info">Informazioni</string>
+    <string name="url_terms">https://google.com</string>
+    <string name="url_privacy">https://google.com</string>
+    <string name="email">distantiaunict@gmail.com</string>
+    <string name="dark_mode">Modalità scura</string>
+    <string name="about">About</string>
+    <string name="last_update">Ultimo aggiornamento: 10/05/2020</string>
+    <string name="devs">Sviluppatori: Fabrizio Billeci e Giuseppe Criscione</string>
+    <string name="close">Chiudi</string>
+
+    <string-array name="info_list">
+        <item>Privacy Policy</item>
+        <item>Termini e Condizioni</item>
+        <item>Funzionamento App</item>
+        <item>About</item>
+        <item>Contatti</item>
+    </string-array>
+    <!-- INFORMATION PAGE -->
+
+
+    <!-- INTRO -->
+    <string name="intro_title1">Benvenuto!</string>
+    <string name="intro_title2">Come funziona?</string>
+    <string name="intro_title3">Permessi</string>
+    <string name="intro_title4">Avvia il servizio</string>
+    <string name="intro_title5">Dispositivi rilevati</string>
+    <string name="intro_title6">Superamento della distanza di sicurezza</string>
+    <string name="intro_title7">Calibrazione</string>
+    <string name="intro_title8">Parametri</string>
+    <string name="intro_text1">Quest\'app ti sarà utile per monitorare il distanziamento sociale tra persone.</string>
+    <string name="intro_text2">Tramite il Bluetooth l\'app calcola la distanza dai dispositivi rilevati.</string>
+    <string name="intro_text4">Per avviare il servizio è sufficiente cliccare sul pulsante ON al centro</string>
+    <string name="intro_text5">I dispositivi rilevati verranno mostrati nella lista mostrando anche la distanza calcolata. La distanza cambia colore a seconda della vicinanza del dispositivo rilevato. È possibile inoltre inserire i propri dispositivi nella lista dei dispositivi ignorati cliccando sul pulsante "Aggiungi".</string>
+    <string name="intro_text6">Quando la distanza di dispositivo rilevato è inferiore o uguale ad un metro verrà riprodotto un segnale sonoro accompagnato da una notifica.</string>
+    <string name="intro_text7">L\'app include due profili di default da selezionare in base all\'ambiente in cui ci si trova. \nOgni dispositivo però ha una sensibilità diversa del segnale e potrebbe essere necessario definire un profilo peronalizzato selezionando la voce "Personalizzato".</string>
+    <string name="intro_text8">R0: regola la sensibilità \nN: regola la precisione \nDimensione Kalman: regola il peso da dare alle misurazioni precedenti per ogni dispositivo</string>
+    <!-- INTRO -->
+
+    <string name="unknow_device">Dispositivo sconosciuto</string>
+</resources>
