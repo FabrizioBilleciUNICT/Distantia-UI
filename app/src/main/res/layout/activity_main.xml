@@ -1,97 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <FrameLayout
-        android:id="@+id/fm_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ll_nav"/>
+        tools:context=".MainActivity">
 
-    <com.codedix.distantiaui.views.BottomNav
-        android:id="@+id/ll_nav"
+        <FrameLayout
+        android:id="@+id/fm_content"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:paddingBottom="13dp">
+        android:layout_height="match_parent"/>
 
-        <RelativeLayout
-            android:id="@+id/rl_nav_profile"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Transform" />
 
-            <ImageView
-                android:id="@+id/img1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_profile"
-                android:tint="#fff"/>
+        <com.codedix.distantiaui.bottombar.DistantiaBottomBar
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:fab_cradle_margin="8dp"
+            app:fab_cradle_rounded_corner_radius="8dp"
+            app:fab_size="50dp"
+            app:itemIconTint="@android:color/white"
+            app:menu="@menu/main" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/img1"
-                android:layout_centerHorizontal="true"
-                android:textColor="#fff"
-                android:text="@string/profile"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_anchor="@id/bottomNavigationView"
+            app:layout_anchorGravity="fill_vertical|center_horizontal"
+            app:elevation="16dp" />
 
-        </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <RelativeLayout
-            android:id="@+id/rl_nav_scan"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_centerInParent="true"
-                android:tint="#fff"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/img2"
-                android:layout_centerHorizontal="true"
-                android:textColor="#fff"
-                android:text="@string/service"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_nav_info"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_info"
-                android:tint="#fff"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/img3"
-                android:layout_centerHorizontal="true"
-                android:textColor="#fff"
-                android:text="@string/info"/>
-
-        </RelativeLayout>
-
-    </com.codedix.distantiaui.views.BottomNav>
-
-</RelativeLayout>
