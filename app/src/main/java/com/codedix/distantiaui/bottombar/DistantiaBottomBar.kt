@@ -27,6 +27,8 @@ class DistantiaBottomBar @JvmOverloads constructor(
     var fabCradleRoundedCornerRadius = 0F
     var cradleVerticalOffset = 0F
 
+    var animDuration = 50.toLong()
+
     init {
         val ta = context.theme.obtainStyledAttributes(attrs, R.styleable.FabBottomNavigationView, 0, 0)
         fabSize = ta.getDimension(R.styleable.FabBottomNavigationView_fab_size, 0F)
@@ -53,6 +55,7 @@ class DistantiaBottomBar @JvmOverloads constructor(
 
     fun showFAB(fab: FloatingActionButton) {
         ValueAnimator.ofFloat(materialShapeDrawable.interpolation, 1F).apply {
+            duration = animDuration
             addUpdateListener { materialShapeDrawable.interpolation = it.animatedValue as Float }
             doOnEnd { fab.show() }
             start()
@@ -64,6 +67,7 @@ class DistantiaBottomBar @JvmOverloads constructor(
             override fun onHidden(fab: FloatingActionButton?) {
                 super.onHidden(fab)
                 ValueAnimator.ofFloat(materialShapeDrawable.interpolation, 0F).apply {
+                    duration = animDuration
                     addUpdateListener { materialShapeDrawable.interpolation = it.animatedValue as Float }
                     start()
                 }
