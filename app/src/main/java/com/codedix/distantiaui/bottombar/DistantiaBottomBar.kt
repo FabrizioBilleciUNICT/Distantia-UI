@@ -27,7 +27,7 @@ class DistantiaBottomBar @JvmOverloads constructor(
     var fabCradleRoundedCornerRadius = 0F
     var cradleVerticalOffset = 0F
 
-    var animDuration = 50.toLong()
+    var animDuration = 200.toLong()
 
     init {
         val ta = context.theme.obtainStyledAttributes(attrs, R.styleable.FabBottomNavigationView, 0, 0)
