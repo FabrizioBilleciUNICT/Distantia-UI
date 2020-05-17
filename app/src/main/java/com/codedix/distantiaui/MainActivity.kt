@@ -2,8 +2,10 @@ package com.codedix.distantiaui
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -12,8 +14,10 @@ import com.codedix.distantiaui.bottombar.DistantiaBottomBar
 import com.codedix.distantiaui.pages.FmInformation
 import com.codedix.distantiaui.pages.FmProfile
 import com.codedix.distantiaui.pages.FmScan
+import com.codedix.distantiaui.utils.ViewUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         private var bottomNav: DistantiaBottomBar? = null
         private var fabButton: FloatingActionButton? = null
         private var centerItem: MenuItem? = null
+        private var isStartService: Boolean = true
 
         fun setFragment(f: Fragment, t: String, showFAB: Boolean = false): Boolean {
             fragment = f
@@ -78,6 +83,48 @@ class MainActivity : AppCompatActivity() {
         bottomNav!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         fabButton = findViewById(R.id.fab)
 
+        setServiceStatus()
+
+        fabButton!!.setOnClickListener {
+            onStartAnimService()
+            ViewUtils.revealAnimation(rl_reveal, fabButton!!, 500, object : EmptyCallback {
+                override fun callback() {
+                    ViewUtils.fadeOutAnimation(rl_reveal, 500, object : EmptyCallback {
+                        override fun callback() {
+                            onEndAnimService()
+                        }
+                    })
+                }
+            })
+        }
+
         setFragment(FmScan.newInstance(), context!!.getString(R.string.app_name), true)
+    }
+
+    private fun onStartAnimService() {
+        isStartService = !isStartService
+
+        rl_reveal.visibility = View.INVISIBLE
+        fabButton!!.isClickable = true
+
+        setServiceStatus()
+    }
+
+    private fun onEndAnimService() {
+        rl_reveal.visibility = View.INVISIBLE
+        fabButton!!.isClickable = true
+    }
+
+    private fun setServiceStatus() {
+        if(isStartService) {
+            rl_reveal.setBackgroundColor(getColor(R.color.colorAccent))
+            fabButton!!.backgroundTintList = ColorStateList.valueOf(getColor(R.color.colorAccent))
+            fabButton!!.setImageResource(R.drawable.ic_on)
+        }
+        else {
+            rl_reveal.setBackgroundColor(getColor(R.color.Red))
+            fabButton!!.backgroundTintList = ColorStateList.valueOf(getColor(R.color.Red))
+            fabButton!!.setImageResource(R.drawable.ic_off)
+        }
     }
 }
