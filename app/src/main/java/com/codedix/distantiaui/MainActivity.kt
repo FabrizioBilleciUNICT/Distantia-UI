@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
 
-        var toolbar: ActionBar? = null
+
         var activity: Activity? = null
         var fragmentManager: FragmentManager? = null
         private var fragment: Fragment? = null
@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
             val ft = fragmentManager!!.beginTransaction()
             ft.setCustomAnimations(0, 0)
             ft.replace(R.id.fm_content, f, "").commitAllowingStateLoss()
-            toolbar!!.title = title
 
             if(showFAB) {
                 bottomNav!!.showFAB(fabButton!!)
@@ -76,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         context = this
         activity = this
         MainActivity.fragmentManager = supportFragmentManager
-        toolbar = supportActionBar
 
         bottomNav = findViewById(R.id.bottomNavigationView)
         centerItem = bottomNav!!.menu.findItem(R.id.n_scan)
