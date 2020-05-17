@@ -17,11 +17,11 @@
             android:layout_alignParentBottom="true"
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/fab_nav_dim"
             android:layout_gravity="bottom"
             app:fab_cradle_margin="8dp"
-            app:fab_cradle_rounded_corner_radius="40dp"
-            app:fab_size="55dp"
+            app:fab_cradle_rounded_corner_radius="15dp"
+            app:fab_size="60dp"
             app:itemTextColor="#fff"
             app:itemIconTint="@android:color/white"
             app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
@@ -34,18 +34,27 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            app:fabCustomSize="67dp"
+            app:fabCustomSize="@dimen/fab_nav_dim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:backgroundTint="@color/colorAccent"
             android:src="@drawable/ic_on"
             app:maxImageSize="34dp"
-            android:layout_width="67dp"
-            android:layout_height="67dp"
             android:clickable="true"
             android:focusable="true"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="35dp"
             app:elevation="10dp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_reveal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:elevation="12dp"
+        android:outlineProvider="none"
+        android:visibility="gone"/>
 
 </RelativeLayout>
 
