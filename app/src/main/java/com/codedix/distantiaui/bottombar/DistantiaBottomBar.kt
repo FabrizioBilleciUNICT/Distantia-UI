@@ -28,7 +28,8 @@ class DistantiaBottomBar @JvmOverloads constructor(
     var fabCradleRoundedCornerRadius = 0F
     var cradleVerticalOffset = 0F
 
-    var animDuration = 200.toLong()
+    var animDuration = 200L
+    var cornerSize = 30f
 
     init {
         val ta = context.theme.obtainStyledAttributes(attrs, R.styleable.FabBottomNavigationView, 0, 0)
@@ -44,8 +45,8 @@ class DistantiaBottomBar @JvmOverloads constructor(
 
         val shapeAppearanceModel = ShapeAppearanceModel.Builder()
             .setTopEdge(topCurvedEdgeTreatment)
-            .setTopLeftCorner(CornerFamily.ROUNDED, 20f)
-            .setTopRightCorner(CornerFamily.ROUNDED, 20f)
+            .setTopLeftCorner(CornerFamily.ROUNDED, cornerSize)
+            .setTopRightCorner(CornerFamily.ROUNDED, cornerSize)
             .build()
 
         materialShapeDrawable = MaterialShapeDrawable(shapeAppearanceModel).apply {
