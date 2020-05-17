@@ -6,7 +6,6 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -102,8 +101,8 @@ class MainActivity : AppCompatActivity() {
     private fun onStartAnimService() {
         isStartService = !isStartService
 
-        rl_reveal.visibility = View.INVISIBLE
-        fabButton!!.isClickable = true
+        rl_reveal.visibility = View.VISIBLE
+        fabButton!!.isClickable = false
 
         setServiceStatus()
     }
